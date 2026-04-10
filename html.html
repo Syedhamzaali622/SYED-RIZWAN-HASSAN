@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineer Syed Rizwan Hassan | Solar & Power Solutions</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --bg-black: #000000;
+            --card-bg: #0a0a0a;
+            --cyan-theme: #00d4ff; 
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        * {
+            margin: 0; padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-white);
+            line-height: 1.6;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            gap: 25px;
+            padding: 15px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #111;
+        }
+
+        nav a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        nav a:hover { color: var(--cyan-theme); }
+        .nav-call-btn {
+            color: var(--cyan-theme) !important;
+            border: 1px solid var(--cyan-theme);
+            padding: 5px 12px;
+            border-radius: 4px;
+        }
+
+        /* --- HERO SECTION --- */
+        .premium-hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2070') center/cover no-repeat;
+            background-attachment: fixed;
+            z-index: 1;
+        }
+
+        .overlay-gradient {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.95) 100%);
+            z-index: 2;
+        }
+
+        .content-box { position: relative; z-index: 3; padding: 20px; }
+
+        .main-logo {
+            width: 140px; height: 140px; border-radius: 50%;
+            border: 3px solid var(--cyan-theme);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0px rgba(0, 212, 255, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(0, 212, 255, 0); }
+            100% { box-shadow: 0 0 0 0px rgba(0, 212, 255, 0); }
+        }
+
+        .eng-name { font-size: 14px; letter-spacing: 6px; margin-top: 20px; }
+        .eng-name span { color: var(--cyan-theme); font-size: 28px; display: block; font-weight: 800; }
+        .main-title { font-size: 35px; font-weight: 800; margin: 20px 0; }
+        .dot { color: var(--cyan-theme); margin: 0 10px; }
+
+        /* --- MISSION & VISION --- */
+        .mv-section {
+            padding: 60px 8%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            background: #050505;
+        }
+
+        .mv-box {
+            padding: 30px;
+            background: var(--card-bg);
+            border-left: 4px solid var(--cyan-theme);
+        }
+
+        /* --- NEW ABOUT SECTION --- */
+        .detailed-about {
+            padding: 100px 8%;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            background: #000;
+        }
+
+        .about-visual {
+            flex: 1; min-width: 300px; position: relative;
+        }
+
+        .about-visual img {
+            width: 100%; border-radius: 15px; border: 2px solid #222;
+        }
+
+        .exp-badge {
+            position: absolute; bottom: -20px; right: -20px;
+            background: var(--cyan-theme); color: black;
+            padding: 20px; border-radius: 10px; text-align: center;
+            font-weight: bold; box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .about-content { flex: 1.5; min-width: 300px; }
+        .about-content h2 { font-size: 32px; margin-bottom: 20px; }
+        .about-content h2 span { color: var(--cyan-theme); }
+        
+        .skills-list {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 15px; margin-top: 25px; list-style: none;
+        }
+
+        .skills-list li { display: flex; align-items: center; gap: 10px; color: var(--text-gray); }
+        .skills-list li i { color: var(--cyan-theme); }
+
+        /* --- SERVICES SECTION --- */
+        .services { padding: 80px 8%; }
+        .section-title { border-bottom: 2px solid var(--cyan-theme); display: inline-block; margin-bottom: 40px; font-size: 16px; letter-spacing: 1px; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            position: relative; border: 2px solid var(--cyan-theme);
+            border-radius: 15px; padding: 60px 25px; overflow: hidden;
+            text-align: center; background-size: cover; transition: 0.4s;
+        }
+
+        .solar-bg { background-image: url('https://wildenlivinglab.com/wp-content/uploads/2016/10/GREENTECH-SOLAR-INSTALL_KOD5602.jpg'); }
+        .panels-bg { background-image: url('https://electrical-engineering-portal.com/wp-content/uploads/2015/07/design-industrial-control-panels.jpg'); }
+        .generator-bg { background-image: url('https://cliffordpower.com/wp-content/uploads/2019/10/services-planned-maintenance-programs-a.jpg'); }
+
+        .card-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.82); z-index: 1;
+        }
+
+        .card-content { position: relative; z-index: 2; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 0 30px var(--cyan-theme); }
+
+        /* --- CONTACT AREA --- */
+        .contact-area { background: #050505; padding: 80px 8%; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .profile-circle { width: 110px; height: 110px; border: 2px solid var(--cyan-theme); border-radius: 50%; overflow: hidden; }
+        .profile-circle img { width: 100%; height: 100%; object-fit: cover; }
+        .form input, .form textarea { width: 100%; padding: 15px; margin-bottom: 10px; border: none; border-radius: 4px; }
+
+        @media (max-width: 768px) {
+            .mv-section, .detailed-about, .contact-area { grid-template-columns: 1fr; }
+            .skills-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#">HOME</a>
+        <a href="#about-details">ABOUT</a>
+        <a href="#our-services">SERVICES</a>
+        <a href="tel:+923002107559" class="nav-call-btn"><i class="fas fa-phone-alt"></i> CONTACT</a>
+    </nav>
+
+    <header class="premium-hero">
+        <div class="parallax-bg"></div>
+        <div class="overlay-gradient"></div>
+        <div class="content-box">
+            <div class="logo-wrapper" onclick="document.getElementById('imgModal').style.display='block'">
+                <img src="c:\Users\Syed Talha Ali\Desktop\New folder (4)\image\logo.jpg" alt="ER Logo" class="main-logo">
+            </div>
+            <h1 class="eng-name">ENGINEER <br> <span>SYED RIZWAN HASSAN</span></h1>
+            <h2 class="main-title">ELECTRIC PANELS <span class="dot">•</span> GENERATORS <span class="dot">•</span> SOLAR</h2>
+            <p style="color: var(--text-gray); margin-bottom: 30px;">Engineering Excellence for a Sustainable Future</p>
+            <div style="margin-top: 40px; text-align: center;">
+            </div>
+        </div>
+    </header>
+
+    <section class="mv-section">
+        <div class="mv-box">
+            <h3>OUR MISSION</h3>
+            <p>"To empower homes and industries with sustainable energy through innovative solar solutions and expert engineering, reducing energy costs while building a greener future."</p>
+        </div>
+        <div class="mv-box">
+            <h3>OUR VISION</h3>
+            <p>"To be the most trusted provider of renewable energy, leading the transition toward a carbon-neutral world through engineering innovation and excellence."</p>
+        </div>
+    </section>
+
+    <section id="about-details" class="detailed-about">
+        <div class="about-visual">
+            <img src="c:\Users\Syed Talha Ali\Desktop\New folder (4)\image\image123.jpeg" alt="Engineer at work">
+            <div class="exp-badge">
+                <span style="font-size: 30px;">45+</span><br>Years Experience
+            </div>
+        </div>
+        <div class="about-content">
+            <h3 style="color: var(--cyan-theme); letter-spacing: 3px; font-size: 14px;">WHO WE ARE</h3>
+            <h2>Expert Solutions by <span>Syed Rizwan Hassan</span></h2>
+            <p style="color: var(--text-gray); margin-top: 15px;">
+                With over a decade of hands-on experience in electrical power systems, I specialize in delivering high-efficiency engineering solutions. From complex industrial control panels to modern solar grid integration, our work ensures safety, reliability, and cost-effectiveness.
+            </p>
+            <ul class="skills-list">
+                <li><i class="fas fa-check-circle"></i> Industrial Panel Designing</li>
+                <li><i class="fas fa-check-circle"></i> Generator Overhauling</li>
+                <li><i class="fas fa-check-circle"></i> Solar Net Metering</li>
+                <li><i class="fas fa-check-circle"></i> ATS/AMF Logic Systems</li>
+                <li><i class="fas fa-check-circle"></i> Fault Diagnosis</li>
+                <li><i class="fas fa-check-circle"></i> Load Management</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="services" id="our-services">
+        <h3 class="section-title">OUR SERVICES</h3>
+        <div class="grid">
+            <div class="service-card solar-bg">
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <div class="card-icon"><i class="fas fa-solar-panel"></i></div>
+                    <h4>SOLAR SYSTEM</h4>
+                    <p>On-Grid, Off-Grid, and Hybrid solar solutions for home & industries. Net metering included.</p>
+                </div>
+            </div>
+            <div class="service-card panels-bg">
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <div class="card-icon"><i class="fas fa-bolt"></i></div>
+                    <h4>ELECTRIC PANELS</h4>
+                    <p>Expert wiring and design of ATS, AMF, and main distribution control panels (DBs).</p>
+                </div>
+            </div>
+            <div class="service-card generator-bg">
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <div class="card-icon"><i class="fas fa-tools"></i></div>
+                    <h4>GENERATOR SERVICE</h4>
+                    <p>Professional mechanical overhauling and troubleshooting for all generators.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-area" id="about-engineer">
+        <div>
+            <h3 class="section-title">GET IN TOUCH</h3>
+            <div class="about-box">
+                <div class="profile-circle">
+                    <img src="c:\Users\Syed Talha Ali\Desktop\New folder (4)\image\image123.jpeg" alt="Profile">
+                </div>
+                <div>
+                    <h4 style="color: var(--cyan-theme);">SYED RIZWAN HASSAN</h4>
+                    <p style="color: var(--text-gray); font-size: 14px;">Specialized in Power Engineering and Solar Technology.</p>
+                </div>
+            </div>
+            <div style="margin-top: 30px;">
+                <a href="tel:+923002107559" style="color: white; text-decoration: none; display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                    <i class="fas fa-phone-alt" style="color: var(--cyan-theme);"></i> +92 300 2107559
+                </a>
+                <a href="https://wa.me/923002107559" style="color: white; text-decoration: none; display: flex; align-items: center; gap: 12px;">
+                    <i class="fab fa-whatsapp" style="color: #25D366;"></i> WhatsApp Chat
+                </a>
+            </div>
+        </div>
+
+        <div class="form">
+            <h3 class="section-title">CONTACT FORM</h3>
+            <input type="text" placeholder="Your Name">
+            <input type="text" placeholder="Phone Number">
+            <textarea placeholder="How can we help you?" rows="3"></textarea>
+            <button class="btn" style="width: 100%;">SEND MESSAGE</button>
+        </div>
+    </section>
+
+    <footer style="text-align: center; color: #444; font-size: 12px; padding: 40px;">
+        &copy; ENGINEER SYED RIZWAN HASSAN 
+    </footer>
+
+    <div id="imgModal" class="modal" onclick="this.style.display='none'">
+        <img class="modal-content" src="r (4)\image\logo.jpg">
+    </div>
+
+</body>
+</html>
